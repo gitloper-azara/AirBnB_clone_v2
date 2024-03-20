@@ -1,0 +1,9 @@
+# directories and its content
+__pycache__/
+
+# files
+*.json
+test_parameters_create
+
+# executables
+*.sh

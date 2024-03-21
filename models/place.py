@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, Integer, Float
+from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
 from sqlalchemy.orm import relationship, backref
 from os import getenv
 from models.review import Review
+from models.amenity import Amenity
 import models
 
 
@@ -66,6 +67,12 @@ class Place(BaseModel, Base):
             cascade='all , delete-orphan',
             backref=backref('place', cascade='all')
         )
+        amenities = relationship(
+            'Amenity',
+            secondary='place_amenity',
+            viewonly=False,
+            back_populates='place_amenities'
+        )
     # for FileStorage, getter atrribute to return list of City instances
     else:
         @property
@@ -79,3 +86,42 @@ class Place(BaseModel, Base):
                 if review.place_id == self.id:
                     reviewList.append(review)
             return reviewList
+
+        @property
+        def amenities(self):
+            '''Return the list of amenity instances based on the attr
+            amenity_ids that contains Amenity.id linked to the Place
+            '''
+            amenityList = []
+            amenity_instances = models.storage.all(Amenity)
+            for amenity in amenity_instances.values():
+                if amenity.id in self.amenity_ids:
+                    amenityList.append(amenity)
+            return amenityList
+
+        @amenities.setter
+        def amenities(self, object):
+            '''handles append method for adding an Amenity.id to the
+            attr amenity_ids
+            '''
+            if isinstance(object, Amenity):
+                self.amenity_ids.append(object.id)
+
+place_amenity = Table(
+    'place_amenity',
+    Base.metadata,
+    Column(
+        'place_id',
+        String(60),
+        ForeignKey('places.id'),
+        primary_key=True,
+        nullable=False
+    ),
+    Column(
+        'amenity_id',
+        String(60),
+        ForeignKey('amenities.id'),
+        primary_key=True,
+        nullable=False
+    )
+)

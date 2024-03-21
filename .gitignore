@@ -5,6 +5,7 @@ __pycache__/
 *.json
 test_parameters_create
 main_delete.py
+main_place_amenities.py
 
 # executables
 *.sh

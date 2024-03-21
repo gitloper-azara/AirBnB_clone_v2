@@ -17,7 +17,7 @@ class DBStorage:
 
     __engine = None
     __session = None
-    __classes = [State, City, User, Place, Review]
+    __classes = [State, City, User, Place, Review, Amenity]
 
     def __init__(self) -> None:
         '''instantiates the DBStorage obj'''

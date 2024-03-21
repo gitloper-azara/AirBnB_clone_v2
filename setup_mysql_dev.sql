@@ -1,7 +1,7 @@
--- Setup a MySQL server
+-- Script to Setup a MySQL server
 
 -- Create the database
-CREATE DATABASE IF NOT EXISTS 'hbnb_dev_db';
+CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
 -- create user
 CREATE USER IF NOT EXISTS 'hbnh_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';

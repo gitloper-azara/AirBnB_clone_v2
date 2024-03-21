@@ -190,7 +190,7 @@ class HBNBCommand(cmd.Cmd):
         # print("Parameters to initialise instance:", kwargs)
         new_instance = HBNBCommand.classes[class_name](**kwargs)
         storage.new(new_instance)
-        new_instance.save()
+        storage.save()
         print(new_instance.id)
 
     def help_create(self):
@@ -393,6 +393,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

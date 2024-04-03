@@ -11,6 +11,8 @@ mkdir /data/web_static/
 mkdir /data/web_static/shared/
 mkdir /data/web_static/releases/
 mkdir /data/web_static/releases/test/
+
+# create a fake html file
 touch /data/web_static/releases/test/index.html
 
 # include simple content to test Nginx configuration

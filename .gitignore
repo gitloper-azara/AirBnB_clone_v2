@@ -6,6 +6,11 @@ __pycache__/
 test_parameters_create
 main_delete.py
 main_place_amenities.py
+temp_config
 
 # executables
 *.sh
+0-transfer_file
+
+# do not ignore
+!0-setup_web_static.sh

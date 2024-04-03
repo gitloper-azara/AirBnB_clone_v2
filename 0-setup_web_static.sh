@@ -36,7 +36,7 @@ config_data="/^server {/a \\\n\tlocation \/hbnb_static\/ {\n\t\talias \/data\/we
 config_file="/etc/nginx/sites-available/default"
 
 # check if config block is not already within config file
-grep "$config_data" "$config_file"
+grep -qF "$config_data" "$config_file"
 status=$?
 if [[ status -ne 0 ]]; then
     # if config data does not exist, exit status == 1, then...

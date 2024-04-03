@@ -39,8 +39,10 @@ config_file="/etc/nginx/sites-available/default"
 grep "$config_data" "$config_file"
 status=$?
 if [[ status -ne 0 ]]; then
+    # if config data does not exist, exit status == 1, then...
     sed -i "$config_data" "$config_file"
 else
+    # otherwise...
     echo "Configuration exists!"
 fi
 

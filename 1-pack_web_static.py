@@ -21,7 +21,7 @@ def do_pack():
     res = local(f'tar -cvzf versions/{archive_name} web_static')
 
     # check if compression was a success
-    if res.succeeded: # type: ignore
+    if res.succeeded:  # type: ignore
         # return path to the archive
         return f'versions/{archive_name}'
     else:

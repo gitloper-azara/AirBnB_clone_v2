@@ -8,6 +8,7 @@ test_parameters_create
 main_delete.py
 main_place_amenities.py
 temp_config
+main.py
 
 # executables
 *.sh

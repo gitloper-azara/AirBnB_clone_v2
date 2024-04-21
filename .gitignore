@@ -9,6 +9,8 @@ main_delete.py
 main_place_amenities.py
 temp_config
 main.py
+*dump.sql
+create_user.sql
 
 # executables
 *.sh

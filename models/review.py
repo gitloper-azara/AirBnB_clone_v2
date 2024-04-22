@@ -2,6 +2,7 @@
 """ Review module for the HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Review(BaseModel, Base):
@@ -21,4 +22,11 @@ class Review(BaseModel, Base):
     text = Column(
         String(1024),
         nullable=False
+    )
+    place = relationship(
+        'Place'
+    )
+    user = relationship(
+        'User',
+        back_populates='reviews'
     )

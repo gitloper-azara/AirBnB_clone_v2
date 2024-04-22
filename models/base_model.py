@@ -16,8 +16,7 @@ class BaseModel:
         String(60),
         unique=True,
         nullable=False,
-        primary_key=True,
-        default=str(uuid.uuid4())
+        primary_key=True
     )
     created_at = Column(
         DateTime,

@@ -61,17 +61,26 @@ class Place(BaseModel, Base):
     )
     amenity_ids = []
 
+    cities = relationship(
+        'City',
+        back_populates='places'
+    )
+    user = relationship(
+        'User',
+        back_populates='places'
+    )
+
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         reviews = relationship(
             'Review',
-            cascade='all , delete-orphan',
-            backref=backref('place', cascade='all')
+            cascade='all, delete, delete-orphan',
+            back_populates='place'
         )
         amenities = relationship(
             'Amenity',
             secondary='place_amenity',
             viewonly=False,
-            back_populates='place_amenities'
+            back_populates='places'
         )
     # for FileStorage, getter atrribute to return list of City instances
     else:

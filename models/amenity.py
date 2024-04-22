@@ -13,7 +13,7 @@ class Amenity(BaseModel, Base):
         String(128),
         nullable=False
     )
-    place_amenities = relationship(
+    places = relationship(
         'Place',
         secondary='place_amenity'
     )

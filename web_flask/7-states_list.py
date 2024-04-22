@@ -7,11 +7,13 @@ from models.state import State
 # create flask app instance
 app = Flask(__name__)
 
+
 # remove current SQLAlchemy session
 @app.teardown_appcontext
 def remove_session(exception):
     '''Removes the current SQLAlchemy Session'''
     storage.close()
+
 
 # route for /states_list
 @app.route('/states_list', strict_slashes=False)

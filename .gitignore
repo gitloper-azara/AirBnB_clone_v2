@@ -12,6 +12,8 @@ main.py
 *dump.sql
 create_user.sql
 manual_places.sql
+100-hbnb.sql
+*index.html
 
 # executables
 *.sh

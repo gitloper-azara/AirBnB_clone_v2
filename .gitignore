@@ -11,6 +11,7 @@ temp_config
 main.py
 *dump.sql
 create_user.sql
+manual_places.sql
 
 # executables
 *.sh

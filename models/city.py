@@ -23,6 +23,3 @@ class City(BaseModel, Base):
         cascade='all, delete, delete-orphan',
         back_populates='cities'
     )
-    state = relationship(
-        'State'
-    )
